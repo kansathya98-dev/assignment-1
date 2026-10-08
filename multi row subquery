@@ -1,0 +1,26 @@
+create database stude;
+use stude;
+create table students(
+stuname varchar(20),
+stusub varchar(20),
+stumark int
+);
+insert into students(stuname,stusub,stumark)
+values("SATHYA","TAMIL",90),
+("DEEPA","ENGLISH", 85),
+("KANMANI", "MATHS", 95),
+("KARTHIKA", "MATHS", 96),
+("ANU", "ENGLISH",93);			
+select stuname,stusub,stumark
+from students
+where stusub in (
+select distinct stusub from students
+where stusub in("TAMIL","ENGLISH","MATHS")
+);
+select stumark from students
+where stusub in (
+select distinct stusub from students
+where stusub in("TAMIL","ENGLISH","MATHS")
+);
+
+select *from students;
